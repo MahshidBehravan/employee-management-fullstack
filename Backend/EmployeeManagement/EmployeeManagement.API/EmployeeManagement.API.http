@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:5023
+
+### Add Employee
+POST {{baseUrl}}/api/employees
+Content-Type: application/json
+
+{
+  "name": "John Smith",
+  "salary": 75000
+}
+
+### Get All Employees
+GET {{baseUrl}}/api/employees
+
+### Update Employee
+PUT {{baseUrl}}/api/employees/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "John Smith",
+  "salary": 90000
+}
+
+### Delete Employee
+DELETE {{baseUrl}}/api/employees/2
