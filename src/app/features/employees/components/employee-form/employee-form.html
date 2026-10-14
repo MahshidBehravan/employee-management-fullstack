@@ -1,0 +1,44 @@
+<h2>Add Employee</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="name">Name</label>
+
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+    />
+
+    @if (form.controls.name.touched && form.controls.name.invalid) {
+      <p>Please enter a name with at least 2 characters.</p>
+    }
+  </div>
+
+  <div>
+    <label for="salary">Salary</label>
+
+    <input
+      id="salary"
+      type="number"
+      formControlName="salary"
+    />
+
+    @if (form.controls.salary.touched && form.controls.salary.invalid) {
+      <p>Please enter a salary greater than zero.</p>
+    }
+  </div>
+
+  <button
+  type="submit"
+  [disabled]="form.invalid || adding()"
+>
+  @if (adding()) {
+    Saving...
+  } @else {
+    Save Employee
+  }
+</button>
+
+</form>
